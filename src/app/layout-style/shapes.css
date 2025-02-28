@@ -1,0 +1,127 @@
+.container {
+  display: grid;
+  flex-direction: column;
+  align-items: center; /* จัดให้อยู่กึ่งกลางแนวนอน */
+  height: 100vh; /* ทำให้เต็มหน้าจอ */
+  text-align: center;
+}
+
+
+.navigation {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  height: 20vh;
+}
+
+.arrow {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  cursor: pointer;
+
+}
+
+.left {
+  border-width: 60px 70px 60px 0;
+  border-color: transparent gray transparent transparent;
+}
+
+.right {
+  border-width: 60px 0 60px 70px;
+  border-color: transparent transparent transparent gray;
+}
+
+.up {
+  border-width: 0 70px 120px 70px;
+  border-color: transparent transparent gray transparent;
+}
+
+.down {
+  border-width: 120px 70px 0 70px;
+  border-color: gray transparent transparent transparent;
+}
+
+
+.shape {
+  display: grid;
+  place-items: center;
+  width: 150px;
+  height: 150px;
+  background-color: gray;
+}
+
+
+.shapes-grid {
+  display: grid;
+  flex-direction: column;
+  width: 80vw;
+  height: 40vh;
+  gap: 10px; /* ระยะห่างระหว่างแถว */
+}
+
+.shape-card {
+  display: grid;
+  place-items: center; /* จัดให้อยู่ตรงกลาง */
+  width: 100%;
+  height: 100%;
+  padding: 10px; /* ป้องกันรูปทรงติดขอบ */
+}
+
+.row-1 {
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr 2fr ;
+  direction: rtl;
+  gap: 10px;
+}
+
+.row-2 {
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr 2fr 1fr; 
+  gap: 10px;
+}
+
+.row-2 div:first-child {
+  grid-column: 2 / span 1; /* บังคับให้เริ่มที่ 2fr */
+}
+
+
+
+
+/* CSS Shapes */
+.circle {
+  border-radius: 80%;
+}
+
+.square {
+  background: gray;
+}
+
+.rectangle {
+  width: 250px;
+}
+
+.trapezoid {
+  border-bottom: 150px solid gray;
+  border-left: 75px solid transparent;
+  border-right: 75px solid transparent;
+  height: 0;
+  width: 150px;
+  background-color: transparent !important; 
+}
+
+.parallelogram {
+  width: 250px;
+  height: 125px;
+  transform: skew(20deg);
+}
+
+.oval {
+  width: 250px;
+  height: 125px;
+  border-radius: 50%;
+}
+

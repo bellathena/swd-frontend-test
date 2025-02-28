@@ -1,0 +1,13 @@
+.frame {
+    border: solid;
+    width: 1000px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+
+.fill {
+    width: 100%;
+    display: flex;
+    margin-top: 20px;
+}
