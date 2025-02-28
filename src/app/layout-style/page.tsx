@@ -23,23 +23,23 @@ export default function ShapesPage() {
   const { t, i18n } = useTranslation();
   const [shapes, setShapes] = useState<string[]>(initialShapes);
   const [isSwapped, setIsSwapped] = useState<boolean>(false);
+  
 
   // Language change handler
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng);
   }
 
+
+
   const shuffleAllShapes = () => {
     // ฟังก์ชันสุ่มตำแหน่งของทุกๆ shape
     setShapes((prevShapes) => {
       const newShapes = [...prevShapes];
-
-      // ฟังก์ชันสุ่มตำแหน่งแบบ Fisher-Yates Shuffle
       for (let i = newShapes.length - 1; i > 0; i--) {
         const randomIndex = Math.floor(Math.random() * (i + 1));
         [newShapes[i], newShapes[randomIndex]] = [newShapes[randomIndex], newShapes[i]];
       }
-
       return newShapes;
     });
   };
@@ -58,27 +58,9 @@ export default function ShapesPage() {
     });
   };
 
-  const upRow = () => {
-    setShapes((prevShapes) => {
-      if (prevShapes.length < 6) return prevShapes;
-      const rightRow = prevShapes.slice(0, 3);
-      const leftRow = prevShapes.slice(3, 6);
-      setIsSwapped(!isSwapped);
-      return [...rightRow, ...leftRow];
-    });
+  const toggleSwapRows = () => {
+    setIsSwapped(!isSwapped);
   };
-
-  const downRow = () => {
-    setShapes((prevShapes) => {
-      if (prevShapes.length < 6) return prevShapes;
-      const topRow = prevShapes.slice(0, 3);
-      const bottomRow = prevShapes.slice(3, 6);
-      setIsSwapped(!isSwapped); // สลับค่า true/false
-      return [...bottomRow, ...topRow];
-    });
-  };
-
-
 
   return (
     <div>
@@ -95,33 +77,35 @@ export default function ShapesPage() {
         <div className="navigation">
           <Card className="shape-card" onClick={nextPage} style={{ cursor: "pointer" }}>
             <div className="arrow left"></div>
+            <div className="btn-text">{t("Move Shape")}</div>
           </Card>
 
 
-          <Card className="shape-card">
+          <Card className="shape-card" onClick={toggleSwapRows}>
             <div style={{ display: "flex" }}>
               <div
                 className="arrow up"
-                onClick={upRow}
                 style={{ cursor: "pointer" }}
               ></div>
               <div
                 className="arrow down"
-                onClick={downRow}
                 style={{ cursor: "pointer" }}
               ></div>
             </div>
+            <div className="btn-text">{t("Move Position")}</div>
           </Card>
 
           <Card className="shape-card" onClick={prevPage} style={{ cursor: "pointer" }}>
             <div className="arrow right"></div>
+            <div className="btn-text">{t("Move Shape")}</div>
           </Card>
         </div>
 
         {/* Shapes Lists */}
         <div className="shapes-grid">
+
           {/* แถวแรก */}
-          <div className={`row-1 ${isSwapped ? "left" : "right"}`}>
+          <div className={`row-1 ${isSwapped ? "swapped-right" : "swapped-left"}`}>
             {shapes.slice(0, 3).map((shape, index) => (
               <Card
                 key={index}
@@ -134,7 +118,7 @@ export default function ShapesPage() {
           </div>
 
           {/* แถวที่สอง */}
-          <div className={`row-2 ${isSwapped ? "right" : "left"}`}>
+          <div className={`row-2 ${isSwapped ? "swapped-left" : "swapped-right"}`}>
             {shapes.slice(3, 6).map((shape, index) => (
               <Card
                 key={index + 3}

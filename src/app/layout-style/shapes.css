@@ -6,6 +6,17 @@
   text-align: center;
 }
 
+.btn-text {
+  margin-top: 5px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  background-color: #6eda78; 
+  padding: 4px 10px;
+  border-radius: 10px;
+  font-family: Arial, sans-serif;
+}
 
 .navigation {
   display: grid;
@@ -61,6 +72,7 @@
   width: 80vw;
   height: 40vh;
   gap: 10px; /* ระยะห่างระหว่างแถว */
+  margin-top: 5vh;
 }
 
 .shape-card {
@@ -69,27 +81,39 @@
   width: 100%;
   height: 100%;
   padding: 10px; /* ป้องกันรูปทรงติดขอบ */
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+
+  &:hover {
+    background-color: #FFA200;
+    transform: scale(1.05);
+  }
+
+  &:active {
+    background-color: #6EDA78; 
+    transform: scale(0.98);
+  }
 }
 
-.row-1 {
+
+.swapped-left {
   display: grid;
-  grid-template-columns: 2fr 2fr 2fr 2fr ;
-  direction: rtl;
+  grid-template-columns: 2fr 2fr 2fr 2fr;
   gap: 10px;
 }
 
-.row-2 {
-  display: grid;
-  grid-template-columns: 1fr 2fr 2fr 2fr 1fr; 
-  gap: 10px;
-}
-
-.row-2 div:first-child {
+.swapped-left div:first-child {
   grid-column: 2 / span 1; /* บังคับให้เริ่มที่ 2fr */
 }
 
+.swapped-right {
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr 2fr 1fr;
+  gap: 10px;
+}
 
-
+.swapped-right div:first-child {
+  grid-column: 2 / span 1; /* บังคับให้เริ่มที่ 2fr */
+}
 
 /* CSS Shapes */
 .circle {

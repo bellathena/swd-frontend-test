@@ -25,6 +25,8 @@
     "selectall":"selectAll",
     "deselectall":"DeselectAll",
     "delete":"DELETE",
-    "name":"Name "
+    "name":"Name ",
+    "Move Shape" : "Move Shape",
+    "Move Position" : "Move Position"
 
 }
