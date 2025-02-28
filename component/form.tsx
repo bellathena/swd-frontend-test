@@ -81,15 +81,15 @@ const FormComponent = () => {
             <Form.Item label={t('citizenid')} rules={[{ required: true }]}>
                 <Input.Group compact>
                     <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
-                        <Input style={{ width: 60, textAlign: "center" }} maxLength={1} />
+                        <Input style={{ width: 100, textAlign: "center" }} maxLength={1} />
                         <span>-</span>
-                        <Input style={{ width: 80, textAlign: "center" }} maxLength={4} />
+                        <Input style={{ width: 140, textAlign: "center" }} maxLength={4} />
                         <span>-</span>
-                        <Input style={{ width: 60, textAlign: "center" }} maxLength={5} />
+                        <Input style={{ width: 150, textAlign: "center" }} maxLength={5} />
                         <span>-</span>
-                        <Input style={{ width: 60, textAlign: "center" }} maxLength={2} />
+                        <Input style={{ width: 110, textAlign: "center" }} maxLength={2} />
                         <span>-</span>
-                        <Input style={{ width: 60, textAlign: "center" }} maxLength={1} />
+                        <Input style={{ width: 100, textAlign: "center" }} maxLength={1} />
                     </div>
                 </Input.Group>
             </Form.Item>
@@ -111,15 +111,16 @@ const FormComponent = () => {
    {/* Line5 Mobilephone */}
     <div className="fill">
         <Form.Item label={t('mobile')} required>
-            <Input.Group compact>
-            <Form.Item name="mobilePrefix" noStyle>
-                <Select style={{ width: 80 }}>
-                <Select.Option value="+66">+66</Select.Option>
-                </Select>
-            </Form.Item>
-            <Form.Item name="mobileNumber" noStyle>
-              <Input style={{ width: 150 }} maxLength={9} name="mobileNumber" />
-            </Form.Item>
+            <Input.Group style={{ display: "flex", gap: "8px", alignItems: "center" }} compact>
+              <Form.Item name="mobilePrefix" noStyle>
+                  <Select style={{ width: 100 }}>
+                  <Select.Option value="+66">+66</Select.Option>
+                  </Select>
+              </Form.Item>
+              <span>-</span>
+              <Form.Item name="mobileNumber" noStyle>
+                <Input style={{ width: 200 }} maxLength={9} name="mobileNumber" />
+              </Form.Item>
            
             </Input.Group>
         </Form.Item>

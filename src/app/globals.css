@@ -1,14 +1,8 @@
 body {
   background: linear-gradient(to right,#6EDA78, #FFA200 );
-  display: flex;
+  display: grid;
   align-items: center;
   justify-content: center;
 }
-.header {
-  background: linear-gradient(45deg, #ff5733, #ffcc29); /* สีไล่ระดับ */
-  padding: 0 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+
 

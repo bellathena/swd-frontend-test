@@ -110,7 +110,7 @@ const CustomTable: React.FC = () => {
 
   return (
     <div style={{ padding: "20px" }}>
-    <Checkbox    onClick={handleSelectAll}
+      <Checkbox    onClick={handleSelectAll}
         type="default"
         style={{ marginBottom: "10px", marginRight: "10px" }}/>
         {selectedRowKeys.length === data.length ? t('deselectall') : t('selectall')}
